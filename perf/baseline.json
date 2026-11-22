@@ -1,0 +1,32 @@
+{
+  "repo": "tuannx/neon",
+  "commit": "e3cbce82385f110f638fdcec6928b700020a018c",
+  "date": "2026-11-21",
+  "framework": "python stdlib timeit (fallback; Rust criterion attempted, timed out in workspace dependency fetch \u2014 see caveats)",
+  "environment": "Linux VM shared ~1.5 effective CPU, ~7.7GB RAM, Python 3.12.3",
+  "caveats": "Shared VM: absolute numbers noisy, use for relative regression detection only. Scope is narrow: 3 pure parsing/format functions in test_runner (fixtures/common_types.Lsn, fixtures/pageserver/common_types layer-name parsing). No Rust code measured. Rust toolchain: repo pins 1.88.0, local 1.99.1 via RUSTUP_TOOLCHAIN override; cargo bench -p tenant_size_model hit the 1150s time-box while updating git/crates.io dependencies for the full workspace.",
+  "warmup": 200,
+  "benches": {
+    "lsn_parse_and_format": {
+      "ns_per_op": 1998.7,
+      "ops_per_sec": 500321.3,
+      "unit": "ns/op",
+      "iterations_per_repeat": 20000,
+      "repeat": 5
+    },
+    "parse_image_layer_name": {
+      "ns_per_op": 1620.3,
+      "ops_per_sec": 617152.3,
+      "unit": "ns/op",
+      "iterations_per_repeat": 20000,
+      "repeat": 5
+    },
+    "parse_layer_file_name_delta": {
+      "ns_per_op": 8650.4,
+      "ops_per_sec": 115602.1,
+      "unit": "ns/op",
+      "iterations_per_repeat": 20000,
+      "repeat": 5
+    }
+  }
+}
